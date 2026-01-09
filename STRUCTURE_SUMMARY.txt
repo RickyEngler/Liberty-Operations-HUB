@@ -1,0 +1,49 @@
+﻿ Liberty-Operations-HUB (Estrutura Final - Ajustada)
+  app/                              (Páginas Next.js)
+    page.tsx                        (Home)
+    layout.tsx
+    globals.css
+     api/
+     ferramentas/
+     paineis-bi/
+     registro-atividades/
+     suporte/
+
+  components/                       (Componentes React - Estrutura Limpa)
+    Header.tsx                       Migrado de HTML
+    Menu.tsx                         Migrado de JS
+    Layout.tsx                       Com loading spinner
+    Footer.tsx
+    header.module.css
+    menu.module.css
+    layout.module.css
+    footer.module.css
+     pages/
+        Home.tsx                    Migrado de home.html
+        DefaultPage.tsx
+        home.module.css
+        default.module.css
+
+  public/                            MOVIDO PARA RAIZ (Correto!)
+    assets/                         (Imagens, ícones, fontes)
+    database/
+    _redirects
+    REMOVIDOS: views/, estilos-css/, js/
+
+  src/                              REMOVIDO (Estrutura antiga)
+
+  Arquivos Importantes:
+    package.json
+    next.config.js
+    tsconfig.json
+    tailwind.config.ts
+    README.md
+    DEPLOYMENT_GUIDE.md
+
+ ALTERAÇÕES REALIZADAS:
+   1. Pasta public movida de src/public  public/
+   2. HTML antigos removidos (views/)
+   3. CSS antigos removidos (estilos-css/)
+   4. JS antigos removidos (js/)
+   5. Pasta src completamente removida
+   6. Estrutura React completa e funcional
