@@ -1,13 +1,19 @@
 'use client';
 
 import Layout from '@/components/Layout';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 interface FormField {
   descricao: string;
   status: string;
   card?: string;
 }
+
+const autoResizeInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const textarea = event.target;
+    textarea.style.height = 'auto';
+    textarea.style.height = Math.min(textarea.scrollHeight, 150) + 'px';
+};
 
 export default function RegistroAtividadesPage() {
   const [prioridades, setPrioridades] = useState<FormField[]>([
@@ -127,11 +133,12 @@ export default function RegistroAtividadesPage() {
             <div id="prioridades-container" className="space-y-3">
               {prioridades.map((_, idx) => (
                 <div key={idx} className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                  <input
-                    type="text"
+                  <textarea
                     name="prioridade_descricao"
                     placeholder="Descrição"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc] resize-none"
+                    onChange={autoResizeInput}
+                    style={{ minHeight: '40px', lineHeight: '20px' }}
                   />
                   <input
                     type="text"
@@ -173,11 +180,12 @@ export default function RegistroAtividadesPage() {
                     placeholder="GLPI/JIRA"
                     className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
-                  <input
-                    type="text"
+                  <textarea
                     name="chamado_descricao"
                     placeholder="Descrição"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc] resize-none"
+                    onChange={autoResizeInput}
+                    style={{ minHeight: '40px', lineHeight: '20px' }}
                   />
                   <input
                     type="text"
@@ -207,11 +215,12 @@ export default function RegistroAtividadesPage() {
             <div id="chamados-recebidos-container" className="space-y-3">
               {chamadosRecebidos.map((_, idx) => (
                 <div key={idx} className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                  <input
-                    type="text"
+                  <textarea
                     name="recebido_descricao"
                     placeholder="Descrição"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc] resize-none"
+                    onChange={autoResizeInput}
+                    style={{ minHeight: '40px', lineHeight: '20px' }}
                   />
                   <input
                     type="text"
