@@ -1,0 +1,133 @@
+.menu {
+  background-color: #322b44;
+  position: relative;
+  z-index: 99;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  box-shadow: 3px 3px 40px rgba(0, 0, 0, 0.393);
+}
+
+.menu li {
+  position: relative;
+  display: inline-block;
+}
+
+.menu li > a,
+.menu li > .menu-label {
+  display: block;
+  padding: 15px;
+  color: #3affbc;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background-color 0.1s;
+  cursor: pointer;
+  font-family: 'Wix MadeFor Text', sans-serif;
+}
+
+.menu li > a:hover,
+.menu li > .menu-label:hover {
+  background-color: #3a3849;
+  color: #9fffdf;
+}
+
+/* Submenus */
+.menu ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #2d2639;
+  flex-direction: column;
+  min-width: 200px;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+}
+
+.menu li:hover > ul {
+  display: flex;
+}
+
+.menu ul ul li {
+  display: block;
+  width: 100%;
+}
+
+.menu ul ul li a {
+  padding: 12px 20px;
+  text-align: left;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #3affbc;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 200;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+  }
+
+  .menu {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #322b44;
+    z-index: 99;
+  }
+
+  .menu.open {
+    display: block;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .menu li {
+    width: 100%;
+    display: block;
+  }
+
+  .menu li > a,
+  .menu li > .menu-label {
+    padding: 15px;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  .menu ul ul {
+    position: static;
+    display: none;
+    background-color: #2d2639;
+    box-shadow: none;
+  }
+
+  .menu li:hover > ul {
+    display: none;
+  }
+
+  .menu li.active > ul {
+    display: flex;
+  }
+}

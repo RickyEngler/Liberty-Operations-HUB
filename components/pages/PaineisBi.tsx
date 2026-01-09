@@ -18,13 +18,6 @@ const painelCards = [
     href: 'https://bi.libertyti.com.br/Organization/7493a5dd-2dab-4282-9784-fc4a852306ce/Report/d31ff5ec-81ce-4ff7-821d-90ec853e842f',
   },
   {
-    id: 'escala',
-    title: 'Escala',
-    description: 'Realize o acompanhamento da escala dos técnicos da equipe de operações.',
-    backgroundImage: 'https://i.postimg.cc/d0928mHp/ESCALA-N2.png',
-    href: 'https://bi.libertyti.com.br/Organization/7493a5dd-2dab-4282-9784-fc4a852306ce/Report/ab26ea86-a9c9-40e2-b85a-7b2145684999',
-  },
-  {
     id: 'institucionalizacao',
     title: 'Institucionalização',
     description: 'Realize o acompanhamento do painel BI da equipe de Institucionalização.',

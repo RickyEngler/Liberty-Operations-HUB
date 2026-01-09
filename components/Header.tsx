@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function Header() {
   const handleNewReport = () => {
     window.open(
-      'https://libertyti.atlassian.net/servicedesk/customer/portal/11/create/145',
+      'https://libertyti.atlassian.net/servicedesk/customer/portals',
       '_blank'
     );
   };
@@ -17,9 +17,9 @@ export default function Header() {
         <Image
           src="/assets/images/logo-liberty.png"
           alt="logo-liberty"
-          width={40}
-          height={40}
-          className="sm:w-[50px] sm:h-[50px] hover:scale-105 transition-transform duration-300"
+          width={100}
+          height={100}
+          className="sm:w-[200px] sm:h-[50px] hover:scale-105 transition-transform duration-300"
         />
       </Link>
       <button

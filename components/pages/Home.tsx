@@ -22,6 +22,12 @@ const links = [
     title: 'Quadro N2',
   },
   {
+    id: 'giraturnos',
+    href: 'https://giraturnosweb.web.app/index.html?view=tecnico',
+    image: '/assets/ícones/jira-icon.png',
+    title: 'Escala N2',
+  },
+  {
     id: 'confluence',
     href: 'https://libertyti.atlassian.net/wiki/home',
     image: '/assets/ícones/confluencia.png',
@@ -79,15 +85,15 @@ export default function HomePage() {
             className="flex flex-col items-center rounded-xl bg-[rgba(58,255,188,0.06)] border border-transparent hover:border-[#3affbc] hover:shadow-[0_10px_30px_rgba(58,255,188,0.2)] transition-all duration-300 px-4 py-5"
           >
             <a
-              href={link.href} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
               id={link.id}
               className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center hover:scale-110 transition-transform duration-300"
             >
               <img
-                className="w-full h-full object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]" 
-                src={link.image} 
+                className="w-full h-full object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
+                src={link.image}
                 alt={link.title}
               />
             </a>

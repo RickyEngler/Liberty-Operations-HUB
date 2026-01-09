@@ -1,0 +1,20 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 75vh;
+}
+
+.title {
+  font-size: 32px;
+  color: #3affbc;
+  margin-bottom: 30px;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.content {
+  color: #c0e7dd;
+  line-height: 1.6;
+  font-size: 14px;
+}
