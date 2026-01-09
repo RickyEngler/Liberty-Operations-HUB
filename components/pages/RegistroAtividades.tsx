@@ -47,18 +47,18 @@ export default function RegistroAtividadesPage() {
 
   return (
     <Layout>
-      <section className="mb-8 text-center">
-        <div className="max-w-5xl mx-auto px-4">
-          <h4 className="text-2xl sm:text-3xl font-bold text-[#3affbc] mb-4">Registro de Atividades In Loco</h4>
-          <p className="text-white text-sm sm:text-base">
-            <br /> Preencha os campos abaixo para registrar as atividades da visita técnica.
+      <section className="mb-10 max-w-5xl mx-auto px-4">
+        <div className="rounded-xl border-b-2 border-[#3affbc] bg-gradient-to-r from-[#322b44] to-[#201b2c] px-5 sm:px-8 py-8 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+          <h4 className="text-2xl sm:text-3xl font-bold text-[#3affbc] mb-3 text-left">Registro de Atividades In Loco</h4>
+          <p className="text-white text-sm sm:text-base text-left max-w-3xl">
+            Preencha os campos abaixo para registrar as atividades da visita técnica.
           </p>
         </div>
       </section>
 
-      <div className="max-w-4xl mx-auto bg-[#201b2c] rounded-lg p-4 sm:p-6 md:p-8 shadow-lg mx-4">
+      <div className="max-w-5xl mx-auto bg-[#2f2841] border-2 border-white/20 rounded-2xl p-5 sm:p-7 md:p-10 shadow-[0_20px_40px_rgba(0,0,0,0.35)] mx-4">
         <form onSubmit={handleSubmit} id="registro-form">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#3affbc] mb-6">Informações da Visita</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-[#3affbc] mb-6 uppercase tracking-wide">Informações da Visita</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-4">
               <div className="flex flex-col">
@@ -66,7 +66,7 @@ export default function RegistroAtividadesPage() {
                 <input 
                   type="text" 
                   id="unidade" 
-                  className="bg-[#322b44] text-white px-3 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf] text-sm"
+                  className="bg-[#322b44] text-white px-3 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc] text-sm"
                   required 
                 />
               </div>
@@ -75,7 +75,7 @@ export default function RegistroAtividadesPage() {
                 <input 
                   type="text" 
                   id="responsavel" 
-                  className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                  className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   required 
                 />
               </div>
@@ -84,7 +84,7 @@ export default function RegistroAtividadesPage() {
                 <input 
                   type="date" 
                   id="data" 
-                  className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                  className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   required 
                 />
               </div>
@@ -96,7 +96,7 @@ export default function RegistroAtividadesPage() {
                 <input 
                   type="text" 
                   id="ponto-focal-chegada" 
-                  className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                  className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                 />
               </div>
               <div className="flex flex-col">
@@ -104,7 +104,7 @@ export default function RegistroAtividadesPage() {
                 <input 
                   type="time" 
                   id="horario-chegada" 
-                  className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                  className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                 />
               </div>
               <div className="flex flex-col">
@@ -112,15 +112,15 @@ export default function RegistroAtividadesPage() {
                 <input 
                   type="time" 
                   id="horario-saida" 
-                  className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                  className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                 />
               </div>
             </div>
           </div>
 
           <div className="mt-8 space-y-4">
-            <h2 className="text-2xl font-bold text-[#3affbc] mb-4">Prioridades da Unidade</h2>
-            <p className="text-white text-sm mb-4">
+            <h2 className="text-2xl font-bold text-[#3affbc] mb-2 uppercase tracking-wide">Prioridades da Unidade</h2>
+            <p className="text-white text-sm mb-2 text-justify">
               Ao chegar na unidade o técnico deve verificar com os pontos focais se existe alguma
               demanda prioritária a ser tratada, todas essas ações devem ser inseridas no registro
             </p>
@@ -131,26 +131,26 @@ export default function RegistroAtividadesPage() {
                     type="text"
                     name="prioridade_descricao"
                     placeholder="Descrição"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
                   <input
                     type="text"
                     name="prioridade_status"
                     placeholder="Status"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
                   <input
                     type="text"
                     name="prioridade_card"
                     placeholder="Card"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
                 </div>
               ))}
             </div>
             <button
               type="button"
-              className="bg-[#3affbc] text-black px-4 py-2 rounded font-semibold hover:bg-[#9fffdf] transition-colors"
+              className="bg-[#3affbc] text-black px-4 py-2 rounded font-semibold uppercase tracking-wide hover:bg-[#9fffdf] transition-all hover:-translate-y-0.5"
               onClick={() => addRow('prioridades')}
             >
               Adicionar Prioridade
@@ -158,8 +158,8 @@ export default function RegistroAtividadesPage() {
           </div>
 
           <div className="mt-8 space-y-4">
-            <h2 className="text-2xl font-bold text-[#3affbc] mb-4">Chamados da Unidade (GLPI/JIRA)</h2>
-            <p className="text-white text-sm mb-4">
+            <h2 className="text-2xl font-bold text-[#3affbc] mb-2 uppercase tracking-wide">Chamados da Unidade (GLPI/JIRA)</h2>
+            <p className="text-white text-sm mb-2 text-justify">
               Ao chegar na unidade o técnico deve abrir o GLPI e o JIRA e consultar todos os
               chamados abertos na unidade, esses chamados devem ser repassados para o ponto focal
               responsável para acompanhamento
@@ -171,26 +171,26 @@ export default function RegistroAtividadesPage() {
                     type="text"
                     name="chamado_glpi"
                     placeholder="GLPI/JIRA"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
                   <input
                     type="text"
                     name="chamado_descricao"
                     placeholder="Descrição"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
                   <input
                     type="text"
                     name="chamado_status"
                     placeholder="Status"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
                 </div>
               ))}
             </div>
             <button
               type="button"
-              className="bg-[#3affbc] text-black px-4 py-2 rounded font-semibold hover:bg-[#9fffdf] transition-colors"
+              className="bg-[#3affbc] text-black px-4 py-2 rounded font-semibold uppercase tracking-wide hover:bg-[#9fffdf] transition-all hover:-translate-y-0.5"
               onClick={() => addRow('chamados')}
             >
               Adicionar Chamado
@@ -198,8 +198,8 @@ export default function RegistroAtividadesPage() {
           </div>
 
           <div className="mt-8 space-y-4">
-            <h2 className="text-2xl font-bold text-[#3affbc] mb-4">Chamados Recebidos</h2>
-            <p className="text-white text-sm mb-4">
+            <h2 className="text-2xl font-bold text-[#3affbc] mb-2 uppercase tracking-wide">Chamados Recebidos</h2>
+            <p className="text-white text-sm mb-2 text-justify">
               Durante as rondas e/ou enquanto estiver na unidade o técnico receberá pedido de
               apoio dos profissionais da unidade, essas solicitações devem ser descritas e
               assinadas pelos solicitantes com uma resolução ou encaminhadas para resolução
@@ -211,26 +211,26 @@ export default function RegistroAtividadesPage() {
                     type="text"
                     name="recebido_descricao"
                     placeholder="Descrição"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
                   <input
                     type="text"
                     name="recebido_status"
                     placeholder="Status"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
                   <input
                     type="text"
                     name="recebido_card"
                     placeholder="Card"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
                 </div>
               ))}
             </div>
             <button
               type="button"
-              className="bg-[#3affbc] text-black px-4 py-2 rounded font-semibold hover:bg-[#9fffdf] transition-colors"
+              className="bg-[#3affbc] text-black px-4 py-2 rounded font-semibold uppercase tracking-wide hover:bg-[#9fffdf] transition-all hover:-translate-y-0.5"
               onClick={() => addRow('chamadosRecebidos')}
             >
               Adicionar Chamado Recebido
@@ -238,8 +238,8 @@ export default function RegistroAtividadesPage() {
           </div>
 
           <div className="mt-8 space-y-4">
-            <h2 className="text-2xl font-bold text-[#3affbc] mb-4">Painéis</h2>
-            <p className="text-white text-sm mb-4">
+            <h2 className="text-2xl font-bold text-[#3affbc] mb-2 uppercase tracking-wide">Painéis</h2>
+            <p className="text-white text-sm mb-2 text-justify">
               A atualização dos painéis é de responsabilidade do técnico, durante a visita na
               unidade o técnico deve tirar foto dos painéis e atualizar as informações na ficha da
               unidade
@@ -251,38 +251,38 @@ export default function RegistroAtividadesPage() {
                     type="text"
                     name="painel_modelo"
                     placeholder="Modelo"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
                   <input
                     type="text"
                     name="painel_localizacao"
                     placeholder="Localização"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
                   <input
                     type="text"
                     name="painel_status"
                     placeholder="Status"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
                   <input
                     type="text"
                     name="painel_anydesk"
                     placeholder="Anydesk"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
                   <input
                     type="text"
                     name="painel_chamador"
                     placeholder="Local Chamador"
-                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-[#3affbc] focus:outline-none focus:ring-2 focus:ring-[#9fffdf]"
+                    className="bg-[#322b44] text-white px-4 py-2 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc]"
                   />
                 </div>
               ))}
             </div>
             <button
               type="button"
-              className="bg-[#3affbc] text-black px-4 py-2 rounded font-semibold hover:bg-[#9fffdf] transition-colors"
+              className="bg-[#3affbc] text-black px-4 py-2 rounded font-semibold uppercase tracking-wide hover:bg-[#9fffdf] transition-all hover:-translate-y-0.5"
               onClick={() => addRow('paineis')}
             >
               Adicionar Painel
@@ -291,7 +291,7 @@ export default function RegistroAtividadesPage() {
 
           <button 
             type="submit" 
-            className="mt-8 w-full bg-[#3affbc] text-black px-6 py-3 rounded font-bold text-lg hover:bg-[#9fffdf] hover:scale-105 transition-all duration-300"
+            className="mt-10 w-full bg-[#3affbc] text-black px-6 py-3 rounded font-bold text-lg uppercase tracking-wide shadow-[0_10px_30px_rgba(0,0,0,0.25)] hover:bg-[#9fffdf] hover:scale-105 transition-all duration-300"
           >
             Gerar PDF
           </button>

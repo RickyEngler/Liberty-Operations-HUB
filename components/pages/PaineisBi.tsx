@@ -36,7 +36,7 @@ const painelCards = [
 export default function PaineisBIPage() {
   return (
     <Layout>
-      <section className="mb-8 md:mb-12 text-center max-w-5xl mx-auto px-4">
+      <section className="mb-10 md:mb-14 text-center max-w-5xl mx-auto px-4">
         <div>
           <h4 className="text-2xl sm:text-3xl font-bold text-[#3affbc] mb-4">Painéis BI</h4>
           <p className="text-white text-sm sm:text-base">
@@ -46,53 +46,77 @@ export default function PaineisBIPage() {
         </div>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-6xl mx-auto px-4">
+      <div className="flex flex-wrap justify-center gap-10 px-2 sm:px-4 max-w-6xl mx-auto">
         {painelCards.map((card) => (
-          <div
+          <article
             key={card.id}
-            className="relative h-64 sm:h-72 md:h-80 rounded-lg overflow-hidden shadow-2xl group cursor-pointer"
+            className="relative mt-9 mb-14 rounded-[1.75rem] overflow-hidden cursor-default transition-transform duration-500 ease-out hover:-translate-y-1 hover:scale-[1.01]"
             style={{
+              width: '300px',
+              aspectRatio: '9 / 15.5',
+              maxHeight: '90vh',
               backgroundImage: `url('${card.backgroundImage}')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
+              boxShadow: '0 0 0 2px rgba(102, 255, 209, 0.4), 0 0 25px 8px rgba(102, 255, 194, 0.15)',
+              transformStyle: 'preserve-3d',
+              transition: 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease-out, background-size 1.5s ease-out',
             }}
           >
-            <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-50 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 pointer-events-none transition-[box-shadow] duration-300 ease-out hover:shadow-[0_0_0_3px_rgba(102,255,199,0.6),0_0_35px_12px_rgba(102,255,230,0.25)]"></div>
 
-            <div className="absolute inset-0 border-2 border-[#3affbc] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div
+              className="absolute inset-[14px] rounded-[1.375rem] pointer-events-none z-10"
+              style={{
+                boxShadow:
+                  'inset 0.5px 0.5px 1.5px rgba(56, 255, 189, 0.6), inset -1px -1px 1px rgba(56, 255, 189, 0.5), inset 3px 3px 6px rgba(0, 0, 0, 0.25)',
+                border: '1px solid rgba(56, 255, 189, 0.1)',
+              }}
+            ></div>
 
-            <div className="absolute inset-0 flex flex-col justify-between p-6">
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
-
-              <div className="relative z-10">
-                <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-[#3affbc] mb-2">{card.title}</h2>
-                <p className="text-white text-xs sm:text-sm">{card.description}</p>
+            <div className="absolute inset-[14px] rounded-[1.375rem] overflow-hidden flex flex-col justify-end z-[5] bg-gradient-to-t from-black/70 via-black/5 to-transparent">
+              <div className="absolute top-4 right-4 flex items-center gap-2 bg-[rgba(56,255,189,0.85)] text-[#064232] text-xs font-semibold rounded-full px-3 py-2 shadow-lg border border-white/30 z-20">
+                <span className="inline-flex items-center justify-center w-4 h-4 bg-[#064232] text-[10px] text-white rounded-full">
+                  •
+                </span>
+                Elevado
               </div>
 
-              <a
-                href={card.href} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="relative z-10 self-start inline-flex items-center gap-2 bg-[#3affbc] text-black px-4 sm:px-6 py-2 rounded-lg font-bold text-xs sm:text-sm hover:bg-[#9fffdf] hover:scale-105 transition-all duration-300"
-              >
-                Acompanhe
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+              <div className="absolute inset-x-0 bottom-0 h-[75%] bg-gradient-to-t from-[rgba(10,10,10,0.9)] via-[rgba(10,10,10,0.65)] to-transparent pointer-events-none z-10"></div>
+
+              <div className="relative z-20 px-6 pb-6 text-center text-slate-100 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+                <h2 className="text-xl font-bold text-[#3affbc] mb-2 flex items-center justify-center gap-2">
+                  {card.title}
+                </h2>
+                <p className="text-slate-200 text-sm">{card.description}</p>
+                <a
+                  href={card.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center justify-center gap-2 text-sm font-semibold text-[#422006] w-[85%] min-w-[190px] max-w-[85%] mx-auto rounded-full px-6 py-3 shadow-[inset_2px_2px_4px_rgba(56,255,189,0.6),inset_-2px_-2px_4px_rgba(255,245,200,0.5),0_1px_2px_rgba(0,0,0,0.1)] transition-all duration-300 hover:scale-105 hover:shadow-[inset_2px_2px_5px_rgba(56,255,189,0.5),inset_-2px_-2px_5px_rgba(255,245,200,0.6),0_2px_4px_rgba(0,0,0,0.15)]"
+                  style={{
+                    background: 'linear-gradient(145deg, #47fdc3, #9b15fa)',
+                  }}
                 >
-                  <path d="M12 5l7 7-7 7"></path>
-                  <path d="M5 12h14"></path>
-                </svg>
-              </a>
+                  Acompanhe
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M12 5l7 7-7 7"></path>
+                    <path d="M5 12h14"></path>
+                  </svg>
+                </a>
+              </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </Layout>

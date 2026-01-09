@@ -32,10 +32,12 @@ export default function Menu() {
         ☰
       </button>
 
-      <nav className={`bg-[#322b44] w-full lg:static lg:w-auto ${
-        isMobileMenuOpen ? 'fixed inset-0 w-[70%] right-0 top-0 z-40 flex flex-col' : 'hidden lg:flex'
-      }`}>
-        <ul className="flex flex-col lg:flex-row justify-center items-start lg:items-center list-none m-0 p-0 lg:shadow-md w-full">
+      <nav
+        className={`bg-[#322b44] shadow-[0_3px_40px_rgba(0,0,0,0.4)] border-b border-[#3affbc]/30 w-full lg:static lg:w-auto ${
+          isMobileMenuOpen ? 'fixed inset-0 w-[70%] right-0 top-0 z-40 flex flex-col' : 'hidden lg:flex'
+        }`}
+      >
+        <ul className="flex flex-col lg:flex-row justify-center items-start lg:items-center list-none m-0 p-0 w-full">
           <li className="relative w-full lg:w-auto">
             <Link
               href="/"
@@ -45,6 +47,7 @@ export default function Menu() {
               HOME
             </Link>
           </li>
+
           <li className="relative w-full lg:w-auto">
             <Link
               href="/ferramentas"
@@ -54,11 +57,12 @@ export default function Menu() {
               FERRAMENTAS
             </Link>
           </li>
+
           <li className="relative w-full lg:w-auto group">
             <span className="block px-6 py-3 text-[#3affbc] font-bold cursor-pointer hover:bg-[#3a3849] hover:text-[#9fffdf] transition-colors duration-100">
               DOCUMENTOS
             </span>
-            <ul className="hidden lg:group-hover:flex group-hover:flex flex-col bg-[#2d2639] min-w-[250px] rounded-lg shadow-lg p-2 absolute top-full left-0 lg:left-1/2 lg:-translate-x-1/2 z-50">
+            <ul className="hidden lg:group-hover:flex group-hover:flex flex-col bg-[#2d2639] min-w-[250px] rounded-lg shadow-[3px_3px_20px_rgba(0,0,0,0.5)] p-2 absolute top-full left-0 lg:left-1/2 lg:-translate-x-1/2 z-50 border border-[#3affbc]/20">
               <li>
                 <Link
                   href="/registro-atividades"
@@ -70,11 +74,12 @@ export default function Menu() {
               </li>
             </ul>
           </li>
+
           <li className="relative w-full lg:w-auto group">
             <span className="block px-6 py-3 text-[#3affbc] font-bold cursor-pointer hover:bg-[#3a3849] hover:text-[#9fffdf] transition-colors duration-100">
               PORTAL DE ACESSOS
             </span>
-            <ul className="hidden lg:group-hover:flex group-hover:flex flex-col bg-[#2d2639] min-w-[250px] rounded-lg shadow-lg p-2 absolute top-full left-0 lg:left-1/2 lg:-translate-x-1/2 z-50">
+            <ul className="hidden lg:group-hover:flex group-hover:flex flex-col bg-[#2d2639] min-w-[250px] rounded-lg shadow-[3px_3px_20px_rgba(0,0,0,0.5)] p-2 absolute top-full left-0 lg:left-1/2 lg:-translate-x-1/2 z-50 border border-[#3affbc]/20">
               <li>
                 <Link
                   href="/paineis-bi"
@@ -86,11 +91,12 @@ export default function Menu() {
               </li>
             </ul>
           </li>
+
           <li className="relative w-full lg:w-auto group">
             <span className="block px-6 py-3 text-[#3affbc] font-bold cursor-pointer hover:bg-[#3a3849] hover:text-[#9fffdf] transition-colors duration-100">
               OPÇÕES
             </span>
-            <ul className="hidden lg:group-hover:flex group-hover:flex flex-col bg-[#2d2639] min-w-[250px] rounded-lg shadow-lg p-2 absolute top-full left-0 lg:left-1/2 lg:-translate-x-1/2 z-50">
+            <ul className="hidden lg:group-hover:flex group-hover:flex flex-col bg-[#2d2639] min-w-[250px] rounded-lg shadow-[3px_3px_20px_rgba(0,0,0,0.5)] p-2 absolute top-full left-0 lg:left-1/2 lg:-translate-x-1/2 z-50 border border-[#3affbc]/20">
               <li>
                 <Link
                   href="/suporte"
