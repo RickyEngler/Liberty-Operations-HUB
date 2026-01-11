@@ -42,6 +42,24 @@
       "static/chunks/731-e4f12035913fd47d.js",
       "static/chunks/app/ferramentas/page-82ea76c05450d990.js"
     ],
+    "/paineis-bi/page": [
+      "static/chunks/webpack-0a2916f64d3e6c12.js",
+      "static/chunks/fd9d1056-9f91b5e418130764.js",
+      "static/chunks/117-9bcfe95f89d4b2e1.js",
+      "static/chunks/main-app-fbc9aafcccd042f9.js",
+      "static/chunks/726-f69e0adc95ce9f0b.js",
+      "static/chunks/731-e4f12035913fd47d.js",
+      "static/chunks/app/paineis-bi/page-4c3d436d4099eae6.js"
+    ],
+    "/suporte/page": [
+      "static/chunks/webpack-0a2916f64d3e6c12.js",
+      "static/chunks/fd9d1056-9f91b5e418130764.js",
+      "static/chunks/117-9bcfe95f89d4b2e1.js",
+      "static/chunks/main-app-fbc9aafcccd042f9.js",
+      "static/chunks/726-f69e0adc95ce9f0b.js",
+      "static/chunks/731-e4f12035913fd47d.js",
+      "static/chunks/app/suporte/page-34e328aed00392c5.js"
+    ],
     "/registro-atividades/page": [
       "static/chunks/webpack-0a2916f64d3e6c12.js",
       "static/chunks/fd9d1056-9f91b5e418130764.js",
@@ -53,24 +71,6 @@
       "static/chunks/141-ab879cfa4196b2bd.js",
       "static/chunks/731-e4f12035913fd47d.js",
       "static/chunks/app/registro-atividades/page-f9d3e5bee56ad3ce.js"
-    ],
-    "/suporte/page": [
-      "static/chunks/webpack-0a2916f64d3e6c12.js",
-      "static/chunks/fd9d1056-9f91b5e418130764.js",
-      "static/chunks/117-9bcfe95f89d4b2e1.js",
-      "static/chunks/main-app-fbc9aafcccd042f9.js",
-      "static/chunks/726-f69e0adc95ce9f0b.js",
-      "static/chunks/731-e4f12035913fd47d.js",
-      "static/chunks/app/suporte/page-34e328aed00392c5.js"
-    ],
-    "/paineis-bi/page": [
-      "static/chunks/webpack-0a2916f64d3e6c12.js",
-      "static/chunks/fd9d1056-9f91b5e418130764.js",
-      "static/chunks/117-9bcfe95f89d4b2e1.js",
-      "static/chunks/main-app-fbc9aafcccd042f9.js",
-      "static/chunks/726-f69e0adc95ce9f0b.js",
-      "static/chunks/731-e4f12035913fd47d.js",
-      "static/chunks/app/paineis-bi/page-4c3d436d4099eae6.js"
     ]
   }
 }
