@@ -1,4 +1,4 @@
-// File: C:\Users\LIBERTY\Documents\GitHub\Liberty-Operations-HUB\app\layout.tsx
+// File: C:\Users\augus\Documents\GitHub\Liberty-Operations-HUB\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

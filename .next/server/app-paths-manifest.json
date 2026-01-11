@@ -1,4 +1,6 @@
 {
+  "/page": "app/page.js",
   "/registro-atividades/page": "app/registro-atividades/page.js",
-  "/page": "app/page.js"
+  "/suporte/page": "app/suporte/page.js",
+  "/paineis-bi/page": "app/paineis-bi/page.js"
 }

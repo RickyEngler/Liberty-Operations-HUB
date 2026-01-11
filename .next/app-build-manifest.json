@@ -21,10 +21,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/registro-atividades/page.js"
     ],
-    "/_not-found/page": [
+    "/suporte/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/suporte/page.js"
+    ],
+    "/paineis-bi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/paineis-bi/page.js"
     ]
   }
 }

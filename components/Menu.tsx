@@ -92,7 +92,7 @@ export default function Menu() {
               <li>
                 <Link
                   href="/registro-atividades"
-                  className="block px-4 py-2 text-[#3affbc] hover:text-[#9fffdf] hover:bg-[#3a3849] rounded transition-colors"
+                  className="block px-4 py-2 text-[#3affbc] hover:text-[#9fffdf] hover:bg-[#3a3849] rounded transition-colors text-nowrap"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   REGISTRO DE ATIVIDADES
@@ -124,7 +124,7 @@ export default function Menu() {
               <li>
                 <Link
                   href="/paineis-bi"
-                  className="block px-4 py-2 text-[#3affbc] hover:text-[#9fffdf] hover:bg-[#3a3849] rounded transition-colors"
+                  className="block px-4 py-2 text-[#3affbc] hover:text-[#9fffdf] hover:bg-[#3a3849] rounded transition-colors text-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   PAINÉIS BI
@@ -156,7 +156,7 @@ export default function Menu() {
               <li>
                 <Link
                   href="/suporte"
-                  className="block px-4 py-2 text-[#3affbc] hover:text-[#9fffdf] hover:bg-[#3a3849] rounded transition-colors"
+                  className="block px-4 py-2 text-[#3affbc] hover:text-[#9fffdf] hover:bg-[#3a3849] rounded transition-colors text-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   MELHORIAS
