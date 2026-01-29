@@ -4,7 +4,23 @@ import Layout from '@/components/Layout';
 import { useEffect, useState, useRef } from 'react';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import * as QRCode from 'qrcode';
+=======
+import QRCode from 'qrcode';
+>>>>>>> Stashed changes
+=======
+import QRCode from 'qrcode';
+>>>>>>> Stashed changes
+=======
+import QRCode from 'qrcode';
+>>>>>>> Stashed changes
+=======
+import QRCode from 'qrcode';
+>>>>>>> Stashed changes
 
 interface FormField {
   descricao: string;
@@ -71,6 +87,10 @@ export default function RegistroAtividadesPage() {
     Array<{ modelo: string; localizacao: string; status: string; anydesk: string; chamador: string }>
   >([{ modelo: '', localizacao: '', status: '', anydesk: '', chamador: '' }]);
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
   // Estados para o sistema de assinaturas
   const [showSignatureModal, setShowSignatureModal] = useState(false);
   const [showNameModal, setShowNameModal] = useState(false);
@@ -85,6 +105,36 @@ export default function RegistroAtividadesPage() {
   const [formDataForPDF, setFormDataForPDF] = useState<any>(null);
   
   const canvasRef = useRef<HTMLCanvasElement>(null);
+=======
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+  // Estados para controlar o modal e tipos de assinatura
+  const [showSignModal, setShowSignModal] = useState(false);
+  const [signatureType, setSignatureType] = useState<'digital' | 'qrcode' | 'traditional' | null>(null);
+  const [showNameModal, setShowNameModal] = useState(false);
+  const [signerName, setSignerName] = useState('');
+  const [signerLastName, setSignerLastName] = useState('');
+  const [signatureData, setSignatureData] = useState<string | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isDrawing, setIsDrawing] = useState(false);
+  const [showQRCodeModal, setShowQRCodeModal] = useState(false);
+  const [qrCodeData, setQrCodeData] = useState<string | null>(null);
+  const [isQRCodeSigned, setIsQRCodeSigned] = useState(false);
+  const [formDataForPDF, setFormDataForPDF] = useState<any>(null);
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
   const addRow = (
     type: 'prioridades' | 'chamados' | 'chamadosRecebidos' | 'paineis'
@@ -118,6 +168,10 @@ export default function RegistroAtividadesPage() {
     const pontoFocalChegada = (document.getElementById('ponto-focal-chegada') as HTMLInputElement | null)?.value || '';
     const horarioChegada = (document.getElementById('horario-chegada') as HTMLInputElement | null)?.value || '';
     const horarioSaida = (document.getElementById('horario-saida') as HTMLInputElement | null)?.value || '';
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
     // Armazenar dados do formulário para usar após escolha da assinatura
     const formData = {
@@ -295,6 +349,40 @@ export default function RegistroAtividadesPage() {
       console.log('Iniciando geração de PDF...');
 
       const { unidade, responsavel, dataFormatada, pontoFocalChegada, horarioChegada, horarioSaida } = formDataForPDF;
+=======
+
+=======
+
+>>>>>>> Stashed changes
+=======
+
+>>>>>>> Stashed changes
+=======
+
+>>>>>>> Stashed changes
+    // Armazenar dados do formulário para usar após escolha da assinatura
+    const formData = {
+      unidade,
+      responsavel,
+      dataFormatada,
+      pontoFocalChegada,
+      horarioChegada,
+      horarioSaida
+    };
+    
+    setFormDataForPDF(formData);
+    setShowSignModal(true);
+  };
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
       const doc = new jsPDF();
       let finalY = 0;

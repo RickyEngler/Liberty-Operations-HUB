@@ -686,9 +686,21 @@ video {
 .w-4{
   width: 1rem;
 }
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .w-48{
   width: 12rem;
 }
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .w-6{
   width: 1.5rem;
 }
@@ -731,9 +743,21 @@ video {
 .max-w-md{
   max-width: 28rem;
 }
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .flex-1{
   flex: 1 1 0%;
 }
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .flex-grow{
   flex-grow: 1;
 }
@@ -983,6 +1007,10 @@ video {
 .bg-black\/60{
   background-color: rgb(0 0 0 / 0.6);
 }
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .bg-gray-500{
   --tw-bg-opacity: 1;
   background-color: rgb(107 114 128 / var(--tw-bg-opacity, 1));
@@ -998,6 +1026,14 @@ video {
 .bg-opacity-50{
   --tw-bg-opacity: 0.5;
 }
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .bg-opacity-70{
   --tw-bg-opacity: 0.7;
 }
@@ -1427,6 +1463,7 @@ a:hover {
   background-color: rgb(75 85 99 / var(--tw-bg-opacity, 1));
 }
 
+<<<<<<< Updated upstream
 .hover\:bg-red-600:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
@@ -1436,6 +1473,17 @@ a:hover {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 .hover\:from-\[\#3a3849\]:hover{
   --tw-gradient-from: #3a3849 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(58 56 73 / 0) var(--tw-gradient-to-position);
@@ -1510,6 +1558,10 @@ a:hover {
   --tw-ring-color: rgb(58 255 188 / var(--tw-ring-opacity, 1));
 }
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .disabled\:cursor-not-allowed:disabled{
   cursor: not-allowed;
 }
@@ -1518,6 +1570,14 @@ a:hover {
   opacity: 0.5;
 }
 
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 @media (min-width: 640px){
 
   .sm\:h-20{

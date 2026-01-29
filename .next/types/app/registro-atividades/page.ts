@@ -1,4 +1,4 @@
-// File: C:\Users\LIBERTY\Documents\GitHub\Liberty-Operations-HUB\app\registro-atividades\page.tsx
+// File: C:\Users\augus\Documents\GitHub\Liberty-Operations-HUB\app\registro-atividades\page.tsx
 import * as entry from '../../../../app/registro-atividades/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
