@@ -1,26 +1,9 @@
 'use client';
 
 import Layout from '@/components/Layout';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-import * as QRCode from 'qrcode';
-=======
-import QRCode from 'qrcode';
->>>>>>> Stashed changes
-=======
-import QRCode from 'qrcode';
->>>>>>> Stashed changes
-=======
-import QRCode from 'qrcode';
->>>>>>> Stashed changes
-=======
-import QRCode from 'qrcode';
->>>>>>> Stashed changes
 
 interface FormField {
   descricao: string;
@@ -87,55 +70,6 @@ export default function RegistroAtividadesPage() {
     Array<{ modelo: string; localizacao: string; status: string; anydesk: string; chamador: string }>
   >([{ modelo: '', localizacao: '', status: '', anydesk: '', chamador: '' }]);
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  // Estados para o sistema de assinaturas
-  const [showSignatureModal, setShowSignatureModal] = useState(false);
-  const [showNameModal, setShowNameModal] = useState(false);
-  const [showCanvasModal, setShowCanvasModal] = useState(false);
-  const [showQRCodeModal, setShowQRCodeModal] = useState(false);
-  const [signatureType, setSignatureType] = useState<'digital' | 'qr' | 'traditional'>('traditional');
-  const [signerName, setSignerName] = useState('');
-  const [canvasSignature, setCanvasSignature] = useState<string | null>(null);
-  const [qrCodeData, setQrCodeData] = useState<string | null>(null);
-  const [isQRCodeSigned, setIsQRCodeSigned] = useState(false);
-  const [isDrawing, setIsDrawing] = useState(false);
-  const [formDataForPDF, setFormDataForPDF] = useState<any>(null);
-  
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-  // Estados para controlar o modal e tipos de assinatura
-  const [showSignModal, setShowSignModal] = useState(false);
-  const [signatureType, setSignatureType] = useState<'digital' | 'qrcode' | 'traditional' | null>(null);
-  const [showNameModal, setShowNameModal] = useState(false);
-  const [signerName, setSignerName] = useState('');
-  const [signerLastName, setSignerLastName] = useState('');
-  const [signatureData, setSignatureData] = useState<string | null>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [isDrawing, setIsDrawing] = useState(false);
-  const [showQRCodeModal, setShowQRCodeModal] = useState(false);
-  const [qrCodeData, setQrCodeData] = useState<string | null>(null);
-  const [isQRCodeSigned, setIsQRCodeSigned] = useState(false);
-  const [formDataForPDF, setFormDataForPDF] = useState<any>(null);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-
   const addRow = (
     type: 'prioridades' | 'chamados' | 'chamadosRecebidos' | 'paineis'
   ) => {
@@ -156,233 +90,21 @@ export default function RegistroAtividadesPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Capturar dados do formulário para usar depois
-    const unidade = (document.getElementById('unidade') as HTMLInputElement | null)?.value || '';
-    const responsavel = (document.getElementById('responsavel') as HTMLInputElement | null)?.value || '';
-    const dataInput = (document.getElementById('data') as HTMLInputElement | null)?.value || '';
-    let dataFormatada = '';
-    if (dataInput) {
-      const [ano, mes, dia] = dataInput.split('-');
-      dataFormatada = `${dia}/${mes}/${ano}`;
-    }
-    const pontoFocalChegada = (document.getElementById('ponto-focal-chegada') as HTMLInputElement | null)?.value || '';
-    const horarioChegada = (document.getElementById('horario-chegada') as HTMLInputElement | null)?.value || '';
-    const horarioSaida = (document.getElementById('horario-saida') as HTMLInputElement | null)?.value || '';
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
-    // Armazenar dados do formulário para usar após escolha da assinatura
-    const formData = {
-      unidade,
-      responsavel,
-      dataFormatada,
-      pontoFocalChegada,
-      horarioChegada,
-      horarioSaida
-    };
-    
-    setFormDataForPDF(formData);
-    setShowSignatureModal(true);
-  };
-
-  // Funções para assinatura digital
-  const handleSignatureChoice = (type: 'digital' | 'qr' | 'traditional') => {
-    setSignatureType(type);
-    setShowSignatureModal(false);
-    
-    if (type === 'digital') {
-      setShowNameModal(true);
-    } else if (type === 'qr') {
-      generateQRCodeForSigning();
-    } else {
-      generatePDF();
-    }
-  };
-
-  const handleNameSubmit = () => {
-    if (signerName.trim()) {
-      setShowNameModal(false);
-      // Abrir canvas para assinatura
-      setTimeout(() => {
-        const canvas = canvasRef.current;
-        if (canvas) {
-          const ctx = canvas.getContext('2d');
-          if (ctx) {
-            ctx.fillStyle = 'white';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-          }
-        }
-      }, 100);
-    }
-  };
-
-  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
-    setIsDrawing(true);
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let clientX, clientY;
-    if ('touches' in e) {
-      clientX = e.touches[0].clientX;
-      clientY = e.touches[0].clientY;
-    } else {
-      clientX = e.clientX;
-      clientY = e.clientY;
-    }
-
-    const x = clientX - rect.left;
-    const y = clientY - rect.top;
-
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-  };
-
-  const draw = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
-    if (!isDrawing) return;
-    e.preventDefault();
-    
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let clientX, clientY;
-    if ('touches' in e) {
-      clientX = e.touches[0].clientX;
-      clientY = e.touches[0].clientY;
-    } else {
-      clientX = e.clientX;
-      clientY = e.clientY;
-    }
-
-    const x = clientX - rect.left;
-    const y = clientY - rect.top;
-
-    ctx.lineWidth = 2;
-    ctx.lineCap = 'round';
-    ctx.strokeStyle = '#000000';
-    ctx.lineTo(x, y);
-    ctx.stroke();
-  };
-
-  const stopDrawing = () => {
-    setIsDrawing(false);
-  };
-
-  const clearSignature = () => {
-    const canvas = canvasRef.current;
-    if (canvas) {
-      const ctx = canvas.getContext('2d');
-      if (ctx) {
-        ctx.fillStyle = 'white';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      }
-    }
-  };
-
-  const saveSignature = () => {
-    const canvas = canvasRef.current;
-    if (canvas) {
-      const signatureImage = canvas.toDataURL('image/png');
-      setCanvasSignature(signatureImage);
-      setShowCanvasModal(false);
-      generatePDF();
-    }
-  };
-
-  const clearCanvas = () => {
-    const canvas = canvasRef.current;
-    const ctx = canvas?.getContext('2d');
-    if (canvas && ctx) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'white';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-    }
-  };
-
-  const generateQRCodeForSigning = async () => {
-    try {
-      const documentData = {
-        documento: 'Registro de Atividades In Loco',
-        unidade: formDataForPDF?.unidade || '',
-        data: new Date().toISOString(),
-        hash: Math.random().toString(36).substring(2, 15)
-      };
-      
-      const qrString = JSON.stringify(documentData);
-      const qrDataURL = await QRCode.toDataURL(qrString, {
-        width: 256,
-        margin: 2,
-        color: {
-          dark: '#000000',
-          light: '#FFFFFF'
-        }
-      });
-      
-      setQrCodeData(qrDataURL);
-      setShowQRCodeModal(true);
-    } catch (error) {
-      console.error('Erro ao gerar QR Code:', error);
-      alert('Erro ao gerar QR Code para assinatura');
-    }
-  };
-
-  const simulateQRCodeSigning = () => {
-    // Simula que o QR Code foi assinado
-    setIsQRCodeSigned(true);
-    setShowQRCodeModal(false);
-    generatePDF();
-  };
-
-  const generatePDF = () => {
-    if (!formDataForPDF) return;
-
     try {
       console.log('Iniciando geração de PDF...');
 
-      const { unidade, responsavel, dataFormatada, pontoFocalChegada, horarioChegada, horarioSaida } = formDataForPDF;
-=======
-
-=======
-
->>>>>>> Stashed changes
-=======
-
->>>>>>> Stashed changes
-=======
-
->>>>>>> Stashed changes
-    // Armazenar dados do formulário para usar após escolha da assinatura
-    const formData = {
-      unidade,
-      responsavel,
-      dataFormatada,
-      pontoFocalChegada,
-      horarioChegada,
-      horarioSaida
-    };
-    
-    setFormDataForPDF(formData);
-    setShowSignModal(true);
-  };
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+      // 1. Captura dos dados principais
+      const unidade = (document.getElementById('unidade') as HTMLInputElement | null)?.value || '';
+      const responsavel = (document.getElementById('responsavel') as HTMLInputElement | null)?.value || '';
+      const dataInput = (document.getElementById('data') as HTMLInputElement | null)?.value || '';
+      let dataFormatada = '';
+      if (dataInput) {
+        const [ano, mes, dia] = dataInput.split('-');
+        dataFormatada = `${dia}/${mes}/${ano}`;
+      }
+      const pontoFocalChegada = (document.getElementById('ponto-focal-chegada') as HTMLInputElement | null)?.value || '';
+      const horarioChegada = (document.getElementById('horario-chegada') as HTMLInputElement | null)?.value || '';
+      const horarioSaida = (document.getElementById('horario-saida') as HTMLInputElement | null)?.value || '';
 
       const doc = new jsPDF();
       let finalY = 0;
@@ -523,32 +245,7 @@ export default function RegistroAtividadesPage() {
         finalY = (doc as any).lastAutoTable.finalY + 10;
       }
 
-      // 4. Assinatura no PDF baseada no tipo escolhido
-      finalY += 20; // Espaço para a assinatura
-      
-      if (signatureType === 'digital' && canvasSignature) {
-        // Assinatura digital por canvas
-        const imgWidth = 100;
-        const imgHeight = 50;
-        doc.addImage(canvasSignature, 'PNG', pageCenter - (imgWidth/2), finalY, imgWidth, imgHeight);
-        finalY += imgHeight + 5;
-        doc.text(`Assinado digitalmente por: ${signerName}`, pageCenter, finalY, { align: 'center' });
-      } else if (signatureType === 'qr' && qrCodeData) {
-        // Assinatura por QR Code
-        const qrSize = 60;
-        doc.addImage(qrCodeData, 'PNG', pageCenter - (qrSize/2), finalY, qrSize, qrSize);
-        finalY += qrSize + 5;
-        doc.text(`Assinado digitalmente por: ${signerName}`, pageCenter, finalY, { align: 'center' });
-      } else {
-        // Assinatura tradicional (linha)
-        const lineWidth = 200;
-        const lineStartX = pageCenter - (lineWidth/2);
-        doc.line(lineStartX, finalY, lineStartX + lineWidth, finalY);
-        finalY += 10;
-        doc.text(`Assinado por: ${signerName || '_________________________'}`, pageCenter, finalY, { align: 'center' });
-      }
-
-      // 5. Salvamento e limpeza
+      // 4. Salvamento e limpeza
       const fileName = `Registro_${(unidade || 'Unidade').replace(/ /g, '_')}_${(dataFormatada || 'sem_data').replace(/\//g, '-')}.pdf`;
       doc.save(fileName);
       console.log(`PDF "${fileName}" gerado com sucesso.`);
@@ -828,157 +525,6 @@ export default function RegistroAtividadesPage() {
           </div>
         </form>
       </div>
-
-      {/* Modal de Seleção de Assinatura */}
-      {showSignatureModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-[#2f2841] border-2 border-[#3affbc] rounded-lg p-6 max-w-md w-full mx-4">
-            <h3 className="text-xl font-bold text-[#3affbc] mb-4 text-center">
-              Como será realizada a assinatura?
-            </h3>
-            <div className="space-y-4">
-              <button
-                onClick={() => handleSignatureChoice('digital')}
-                className="w-full bg-[#3affbc] text-black px-4 py-3 rounded font-semibold hover:bg-[#9fffdf] transition-all"
-              >
-                Assinatura Digital (Desenho)
-              </button>
-              <button
-                onClick={() => handleSignatureChoice('qr')}
-                className="w-full bg-[#3affbc] text-black px-4 py-3 rounded font-semibold hover:bg-[#9fffdf] transition-all"
-              >
-                QR Code para Certificado Digital
-              </button>
-              <button
-                onClick={() => handleSignatureChoice('traditional')}
-                className="w-full bg-[#3affbc] text-black px-4 py-3 rounded font-semibold hover:bg-[#9fffdf] transition-all"
-              >
-                Assinatura Tradicional (Linha)
-              </button>
-            </div>
-            <button
-              onClick={() => setShowSignatureModal(false)}
-              className="w-full mt-4 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition-all"
-            >
-              Cancelar
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Modal de Nome do Assinante */}
-      {showNameModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-[#2f2841] border-2 border-[#3affbc] rounded-lg p-6 max-w-md w-full mx-4">
-            <h3 className="text-xl font-bold text-[#3affbc] mb-4 text-center">
-              Informe o nome do responsável
-            </h3>
-            <input
-              type="text"
-              value={signerName}
-              onChange={(e) => setSignerName(e.target.value)}
-              placeholder="Nome completo"
-              className="w-full bg-[#322b44] text-white px-4 py-3 rounded border border-white/30 focus:outline-none focus:ring-2 focus:ring-[#3affbc] mb-4"
-            />
-            <div className="flex gap-3">
-              <button
-                onClick={() => handleNameSubmit()}
-                disabled={!signerName.trim()}
-                className="flex-1 bg-[#3affbc] text-black px-4 py-2 rounded font-semibold hover:bg-[#9fffdf] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                Confirmar
-              </button>
-              <button
-                onClick={() => setShowNameModal(false)}
-                className="flex-1 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition-all"
-              >
-                Cancelar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Modal de Canvas para Assinatura Digital */}
-      {showCanvasModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-[#2f2841] border-2 border-[#3affbc] rounded-lg p-6 max-w-lg w-full mx-4">
-            <h3 className="text-xl font-bold text-[#3affbc] mb-4 text-center">
-              Desenhe sua assinatura
-            </h3>
-            <div className="bg-white border-2 border-gray-300 rounded mb-4">
-              <canvas
-                ref={canvasRef}
-                width={400}
-                height={200}
-                onMouseDown={startDrawing}
-                onMouseMove={draw}
-                onMouseUp={stopDrawing}
-                onMouseLeave={stopDrawing}
-                onTouchStart={startDrawing}
-                onTouchMove={draw}
-                onTouchEnd={stopDrawing}
-                className="cursor-crosshair w-full"
-                style={{ touchAction: 'none' }}
-              />
-            </div>
-            <div className="flex gap-3 mb-4">
-              <button
-                onClick={clearCanvas}
-                className="flex-1 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-all"
-              >
-                Limpar
-              </button>
-              <button
-                onClick={saveSignature}
-                className="flex-1 bg-[#3affbc] text-black px-4 py-2 rounded font-semibold hover:bg-[#9fffdf] transition-all"
-              >
-                Salvar Assinatura
-              </button>
-            </div>
-            <button
-              onClick={() => setShowCanvasModal(false)}
-              className="w-full bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition-all"
-            >
-              Cancelar
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Modal de QR Code */}
-      {showQRCodeModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-[#2f2841] border-2 border-[#3affbc] rounded-lg p-6 max-w-md w-full mx-4">
-            <h3 className="text-xl font-bold text-[#3affbc] mb-4 text-center">
-              QR Code para Certificado Digital
-            </h3>
-            <div className="flex justify-center mb-4">
-              {qrCodeData && (
-                <img src={qrCodeData} alt="QR Code" className="w-48 h-48" />
-              )}
-            </div>
-            <p className="text-white text-sm text-center mb-4">
-              Escaneie este código QR com seu aplicativo de certificado digital para assinar o documento.
-            </p>
-            <div className="flex gap-3">
-              <button
-                onClick={simulateQRCodeSigning}
-                className="flex-1 bg-[#3affbc] text-black px-4 py-2 rounded font-semibold hover:bg-[#9fffdf] transition-all"
-              >
-                {isQRCodeSigned ? 'Assinado!' : 'Simular Assinatura'}
-              </button>
-              <button
-                onClick={() => setShowQRCodeModal(false)}
-                className="flex-1 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition-all"
-              >
-                Cancelar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
     </Layout>
   );
 }
